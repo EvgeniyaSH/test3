@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -9,18 +10,38 @@ public class Main {
         //reading the answer
         Scanner answ = new Scanner(System.in);
         String answ1 = answ.next();
-        System.out.println(answ1);
         //checking the answer
         if (answ1.equalsIgnoreCase("N")) {
             System.out.println("Good bye");
             return;
         }
         while (answ1.equalsIgnoreCase("Y")) {
-            System.out.println("test");
+            Random rn = new Random();
+            int MyN = rn.nextInt(Constants.Imax - Constants.Imin + 1) + Constants.Imin;
+
+            for (int i = 1; i <= Constants.Shot; i++) {
+                System.out.println("Give me your number, plz");
+                //reading the number
+                int n1 = answ.nextInt();
+                //comparing
+                boolean comp = (n1 == MyN);
+                System.out.println(comp);
+                if (!comp & i < Constants.Shot) {
+                    System.out.println("Try once more");
+                } else if (!comp && i == Constants.Shot) {
+                    System.out.println("Oops. No more shots");
+                    break;
+                } else {
+                    System.out.println("You won! Grats");
+                    break;
+                }
+
+            }
+
+
             System.out.println("Do you want to play one more time? Type Y to play, N to exit");
             answ1 = answ.next();
         }
-        //just to check
-        System.out.println("check");
+
     }
 }
