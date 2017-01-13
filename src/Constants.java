@@ -8,4 +8,5 @@ public final class Constants {
 
     public static final int Imin = 1;
     public static final int Imax = 15;
+    public static final int Shot = 3;
 }
